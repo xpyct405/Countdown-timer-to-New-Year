@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppinns', sans-serif;
+    min-height: 100vh;
+    background-color: rgb(154, 103, 206);
+    background: url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80') center no-repeat;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 170px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 60px;
+
+}
+
+.time-container {
+    margin-top: 110px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 30px;
+    color: #fff;
+    font-family: monospace;
+}
+
+.time-element {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.time-element p {
+    font-size: 48px;
+}
+
+.time-element i {
+    font-style: normal;
+    color: rgb(201, 201, 201);
+    font-size: 22px;
+}
