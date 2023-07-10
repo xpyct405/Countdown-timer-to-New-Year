@@ -7,7 +7,7 @@ let secondsEl = document.getElementById('seconds');
 const newYear = '1 Jan 2024';
 
 function countdown() {
-    let newYearDate = new Date(newYear);
+    let newYearDate = new Date(date.value);
     let currentDate = new Date()
     console.log(newYearDate, currentDate);
 
@@ -37,3 +37,18 @@ function formatTime(time) {
 }
 
 setInterval(countdown, 1000)
+
+
+function getDate() {
+    let date = document.querySelector('#date')
+
+    let newDiv = document.createElement('div');
+    newDiv.classList.add('div')
+    document.querySelector('.input-container').appendChild(newDiv)
+    newDiv.innerHTML = date.value;
+
+    return;
+    console.log(date.value);
+}
+// getDate()
+console.log(date.value);
