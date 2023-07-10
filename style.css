@@ -12,8 +12,10 @@ body {
     font-family: 'Poppinns', sans-serif;
     min-height: 100vh;
     background-color: rgb(154, 103, 206);
-    background: url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80') center no-repeat;
+    background-image: url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .container {
@@ -22,12 +24,12 @@ body {
     align-items: center;
 }
 
-h1 {
+.header {
     margin-top: 90px;
     color: #fff;
     text-transform: uppercase;
     font-size: 60px;
-
+    text-align: center;
 }
 
 .time-container {
@@ -53,28 +55,29 @@ h1 {
 
 .time-element i {
     font-style: normal;
-    color: rgb(201, 201, 201);
+    color: rgb(230, 230, 230);
     font-size: 22px;
 }
 
 .popular-container {
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .btn {
-    width: 140px;
+    width: 160px;
     height: 40px;
     border: none;
     cursor: pointer;
-    margin-right: 10px;
     font-style: normal;
-    color: rgb(201, 201, 201);
+    color: rgb(230, 230, 230);
     background: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-}
-
-.btn:last-child {
-    margin-right: 0;
 }
 
 .btn:hover {
