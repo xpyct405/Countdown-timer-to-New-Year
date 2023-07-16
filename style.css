@@ -70,6 +70,7 @@ body {
 }
 
 .btn {
+    z-index: 999;
     width: 160px;
     height: 40px;
     border: none;
@@ -86,4 +87,33 @@ body {
 
 .btn:active {
     background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.input-container {
+    margin-top: 140px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.input-container input {
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    padding: 4px 8px;
+    background-color: rgb(235, 235, 235);
+    font-size: 14px;
 }

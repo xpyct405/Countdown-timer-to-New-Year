@@ -4,16 +4,17 @@ let hoursEl = document.getElementById('hours');
 let minsEl = document.getElementById('mins');
 let secondsEl = document.getElementById('seconds');
 
-// тут можно указать любую дату!
+
+// тут можно указать любую дату! по умолчанию НГ
 let date = '1 Jan 2024';
 
 function countdown() {
-    let newYearDate = new Date(date);
+    let myDate = new Date(date);
     let currentDate = new Date()
     // console.log(newYearDate, currentDate);
 
     // Ниже значение в миллиисекундах, делим на 1000. Сттолько всего секунд до нг!
-    let totalSecods = Math.floor((newYearDate - currentDate) / 1000)
+    let totalSecods = Math.floor((myDate - currentDate) / 1000)
 
     // В одном дне 3600сек * 24часа = 86400 секунд
     let days = Math.floor(totalSecods / 3600 / 24)
@@ -34,21 +35,22 @@ function countdown() {
 }
 
 function formatTime(time) {
-    return time < 10 ? (`0${time}`) : time
+    return time < 10 && time > 0 ? (`0${time}`) : time
 }
+
 
 setInterval(countdown, 1000)
 
 
 
 // Popular Holidays
-
 let btnNy = document.querySelector('.btn-ny');
 let btnGd = document.querySelector('.btn-gd');
 let btnSp = document.querySelector('.btn-sp');
 let btnId = document.querySelector('.btn-id');
 let btnHw = document.querySelector('.btn-hw');
 let btnCs = document.querySelector('.btn-cs');
+let allBtns = document.querySelectorAll('button');
 
 btnNy.addEventListener('click', () => {
     header.innerHTML = 'New Year 2024';
@@ -76,6 +78,57 @@ btnCs.addEventListener('click', () => {
 })
 
 
+// Lets choose any day
+let chooseContainer = document.querySelector('.input-container');
+let btnChoose = document.querySelector('.btn-choose');
+let inputDate = document.querySelector('#date');
+let modal = document.querySelector(".modal");
+
+// Активируем модальное окно
+btnChoose.addEventListener('click', () => {
+    modal.style.display = "block"
+})
+
+// НЕОБХОДИМО СДЕЛАТЬ УСЛОВИЕ ЧТО ЭТО РАБОТАЕТ ТОЛЬКО ЕСЛИ МОДАЛЬНОЕ ОКНО ЗАПУЩЕНО
+// Убираем модальное окно при клике по любой кнопке кроме последней
+for (let i = 0; i < allBtns.length - 1; i++) {
+    allBtns[i].addEventListener('click', () => {
+        modal.style.display = "none"
+        console.log(allBtns[i]);
+    })
+}
+
+// Обработка события по клику вне окна
+window.addEventListener('click', function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none"
+    }
+})
+
+// change отслеживает любое изменение и изменяется value при потере фокуса. Можно использоваться input но значение будет меняться быстро слишком даже при пролистывании
+inputDate.addEventListener('change', () => {
+    date = inputDate.value;
+    header.innerHTML = 'Your day in'
+    console.log(date);
+})
+
+
+
+
+
+// let isActive = chooseContainer.classList.contains('active');
+// chooseContainer.setAttribute('class', isActive ? 'input-container' : 'input-container active')
+
+
+
+// // Обработка клика вне окна
+// chooseContainer.addEventListener('click', (event) => {
+//     if (event.target == document.querySelector('.container')) {
+//         btnChoose.click();
+//     };
+
+//     // console.log(event.target);
+// })
 
 
 // function getDate() {
