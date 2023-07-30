@@ -13,17 +13,17 @@ function countdown() {
     let currentDate = new Date()
     // console.log(newYearDate, currentDate);
 
-    // Ниже значение в миллиисекундах, делим на 1000. Сттолько всего секунд до нг!
-    let totalSecods = Math.floor((myDate - currentDate) / 1000)
+    // Ниже значение в миллиисекундах, делим на 1000. Столько всего секунд до нг!
+    let totalSeconds = Math.floor((myDate - currentDate) / 1000)
 
     // В одном дне 3600сек * 24часа = 86400 секунд
-    let days = Math.floor(totalSecods / 3600 / 24)
+    let days = Math.floor(totalSeconds / 3600 / 24)
     // В одном часе 3600сек, оставляем остаток после деления на 24 часа
-    let hours = Math.floor(totalSecods / 3600) % 24
+    let hours = Math.floor(totalSeconds / 3600) % 24
     // В одной минуте 60 сек и оставляем остаток после деления на 60 минут
-    let mins = Math.floor(totalSecods / 60) % 60
+    let mins = Math.floor(totalSeconds / 60) % 60
     // Оставляем  остаток после деления на 60 секунд
-    let seconds = Math.floor(totalSecods) % 60
+    let seconds = Math.floor(totalSeconds) % 60
 
     // console.log(days, hours, mins, seconds);
 
@@ -38,7 +38,7 @@ function formatTime(time) {
     return time < 10 && time > 0 ? (`0${time}`) : time
 }
 
-
+// Изменения функции countdown будет каждую 1 секунду
 setInterval(countdown, 1000)
 
 
@@ -90,6 +90,7 @@ btnChoose.addEventListener('click', () => {
 })
 
 // НЕОБХОДИМО СДЕЛАТЬ УСЛОВИЕ ЧТО ЭТО РАБОТАЕТ ТОЛЬКО ЕСЛИ МОДАЛЬНОЕ ОКНО ЗАПУЩЕНО
+if (modal.style.display = "block") {}
 // Убираем модальное окно при клике по любой кнопке кроме последней
 for (let i = 0; i < allBtns.length - 1; i++) {
     allBtns[i].addEventListener('click', () => {
@@ -98,8 +99,10 @@ for (let i = 0; i < allBtns.length - 1; i++) {
     })
 }
 
-// Обработка события по клику вне окна
+
+// Обработка события по клику вне окна. Те при клике по модальному окну будет изменяться display у модального окна. А модальное окно будет на весь экран!! кроме input и кнопок (z-index меньше)
 window.addEventListener('click', function (event) {
+    console.log(event.target);
     if (event.target == modal) {
         modal.style.display = "none"
     }
@@ -110,35 +113,9 @@ inputDate.addEventListener('change', () => {
     date = inputDate.value;
     header.innerHTML = 'Your day in'
     console.log(date);
+    // Делаем отображение none
+    modal.style.display = "none"
 })
 
-
-
-
-
-// let isActive = chooseContainer.classList.contains('active');
-// chooseContainer.setAttribute('class', isActive ? 'input-container' : 'input-container active')
-
-
-
-// // Обработка клика вне окна
-// chooseContainer.addEventListener('click', (event) => {
-//     if (event.target == document.querySelector('.container')) {
-//         btnChoose.click();
-//     };
-
-//     // console.log(event.target);
-// })
-
-
-// function getDate() {
-//     let date = document.querySelector('#date')
-
-//     let newDiv = document.createElement('div');
-//     newDiv.classList.add('div')
-//     document.querySelector('.input-container').appendChild(newDiv)
-//     newDiv.innerHTML = date.value;
-
-//     return;
-// }
-// console.log(date.value);
+// По умолчанию делаем отображение none
+modal.style.display = "none"
