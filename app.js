@@ -91,7 +91,18 @@ btnChoose.addEventListener('click', () => {
 
 // НЕОБХОДИМО СДЕЛАТЬ УСЛОВИЕ ЧТО ЭТО РАБОТАЕТ ТОЛЬКО ЕСЛИ МОДАЛЬНОЕ ОКНО ЗАПУЩЕНО
 if (modal.style.display = "block") {}
-// Убираем модальное окно при клике по любой кнопке кроме последней
+
+// Пробегаемся по циклу всех кнопок, при клике по любой из них удаляем во всём цикле у всех кнопок класс active и добавляем класс active только одной кнопке по которой кликнули
+for (let i = 0; i < allBtns.length; i++) {
+    allBtns[i].addEventListener('click', () => {
+        for (let j = 0; j < allBtns.length; j++) {
+            allBtns[j].classList.remove('active');
+        }
+        allBtns[i].classList.add('active')
+    })
+}
+
+// Пробегаемся по циклу всех кнопок, при клике по любой из них кроме последней- убираем отображение модального окна!
 for (let i = 0; i < allBtns.length - 1; i++) {
     allBtns[i].addEventListener('click', () => {
         modal.style.display = "none"
@@ -102,7 +113,6 @@ for (let i = 0; i < allBtns.length - 1; i++) {
 
 // Обработка события по клику вне окна. Те при клике по модальному окну будет изменяться display у модального окна. А модальное окно будет на весь экран!! кроме input и кнопок (z-index меньше)
 window.addEventListener('click', function (event) {
-    console.log(event.target);
     if (event.target == modal) {
         modal.style.display = "none"
     }
